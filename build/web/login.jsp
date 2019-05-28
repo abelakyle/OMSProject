@@ -10,15 +10,13 @@
         <head>
                 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
                 <link rel="stylesheet" type="text/css" href="style/stylish.css">
-                <title>Login</title>
+                <title>Log In</title>
                 
         </head>
         
-        <div class="header">
-                <header>
-                        <h1>Online Movie Store</h1>                    
-                </header>
-        </div>
+        <header>
+                <h1>Online Movie Store</h1>                    
+        </header>
         
         <div class ="navbar">
                 <span class="leftalign">
@@ -32,14 +30,14 @@
         </div>
         
         <body>
-                <h1>Login</h1>
+                <h1>Log In</h1>
                 <form action="loggedIn.jsp" method="POST">
                     <table>
                         <tr><td>ID</td><td><input type="text" name="email"></td></tr>
                         <tr><td>Password</td><td><input type="text" name="password"></td></tr>
                         <tr>
                             <td><label for=""></label></td>
-                            <td><input name="" type="submit" value="logIn"></td>
+                            <td><input name="" type="submit" value="Log In"></td>
                         </tr>
                     <table>
                 </form>

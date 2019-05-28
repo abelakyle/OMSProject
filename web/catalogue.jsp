@@ -13,11 +13,9 @@
             <title>Catalogue</title>
         </head>
     
-        <div class="header">
-                <header>
-                        <h1>Online Movie Store</h1>                    
-                </header>
-        </div>
+        <header>
+                <h1>Online Movie Store</h1>                    
+        </header>
         
         <div class ="navbar">
                 <span class="leftalign">
@@ -32,6 +30,8 @@
     
         <body>
             <h1>Catalogue</h1>
+            
+            <p><a href="movieDetails.jsp">Movie Details</a></p>
         </body>
         
 </html>

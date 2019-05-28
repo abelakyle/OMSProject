@@ -13,11 +13,9 @@
                 <title>My Account</title>
         </head>
         
-        <div class="header">
-                <header>
-                        <h1>Online Movie Store</h1>                    
-                </header>
-        </div>
+        <header>
+                <h1>Online Movie Store</h1>                    
+        </header>
         
         <div class ="navbar">
                 <span class="leftalign">
@@ -32,5 +30,11 @@
     
     <body>
         <h1>Your Account Details</h1>
+        
+        <p>Sign Out</p>
+        <p><a href="profile.jsp">Profile</a></p> 
+        <p><a href="accessLog.jsp">Access Logs</a></p>
+        <p><a href="orderHistory.jsp">Order History</a></p>
+        
     </body>
 </html>

@@ -12,13 +12,11 @@
         <link rel="stylesheet" type="text/css" href="style/stylish.css">
         <title>Cart</title>
     </head>
-    
-    <div class="header">
-                <header>
-                        <h1>Online Movie Store</h1>                    
-                </header>
-        </div>
-        
+
+        <header>
+                <h1>Online Movie Store</h1>                    
+        </header>
+       
         <div class ="navbar">
                 <span class="leftalign">
                         <a href="home.jsp">Home</a>                       

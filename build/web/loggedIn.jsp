@@ -13,11 +13,9 @@
                 <title>Logged in</title>
         </head>
         
-        <div class="header">
-                <header>
-                        <h1>Online Movie Store</h1>                    
-                </header>
-        </div>
+        <header>
+                <h1>Online Movie Store</h1>                    
+        </header>
         
         <div class ="navbar">
                 <span class="leftalign">

@@ -28,13 +28,16 @@ header{
     text-decoration: none; 
 }
 
+.navbar a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
 .leftalign{
-    float:left;
-    
+    float:left;  
 }
 
 .rightalign{
     float:right;
-    
 }
 

@@ -4,6 +4,7 @@
     Author     : carti
 --%>
 
+<%@page import="uts.wsd.User"%>
 <%@page import="java.util.Random"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -14,48 +15,54 @@
                 <title>Welcome</title>
         </head>
         
-        <div class="header">
-                <header>
-                        <h1>Online Movie Store</h1>                    
-                </header>
-        </div>
+        <header>
+                <h1>Online Movie Store</h1>                    
+        </header>
         
-        <div class ="navbar">
-                <span class="leftalign">
-                        <a href="home.jsp">Home</a>                       
-                </span>
-                <span class="rightalign">
-                        <a href="login.jsp">Log In</a>
-                        <a href="register.jsp">Register</a>
-                        <a href="cart.jsp">Cart</a>
-                </span> 
-        </div>
-        
-        <body>
         <%
             String email = request.getParameter("email");
             String password = request.getParameter("password");
             String firstName = request.getParameter("firstName");
             String lastName = request.getParameter("lastName");
-            String phoneNumber = request.getParameter("phoneNumber");
+            String phone = request.getParameter("phone");
             String address = request.getParameter("address");
             String city = request.getParameter("city");
             String state = request.getParameter("state");
             String postCode = request.getParameter("postCode");
             String dateOfBirth = request.getParameter("dateOfBirth");
             String id = ""+(new Random().nextInt(999999));
-        %>
-
+            
+            User user = new User();
+            session.setAttribute("user", user);
+        %>                          
+        
+        <div class ="navbar">
+                <span class="leftalign">
+                        <a href="home.jsp">Home</a>                       
+                </span>
+                <span class="rightalign">
+                <% if(user != null){ %>
+                        <a href="login.jsp">Log In</a>
+                        <a href="register.jsp">Register</a>
+                        <a href="cart.jsp">Cart</a>
+                <% } else { %>
+                        <a href="myAccount.jsp"><%=user%></a>
+                        <a href="cart.jsp">Cart</a>
+                <% } %>
+                        
+                </span> 
+        </div>
+        
+        <body>     
             <p>Welcome: <%= firstName + " " + lastName %>! </p>
             <p>Your ID is <%= id %>. </p>
             <p>Your email is <%= email %>. </p>
             <p>Your password is <%= password %>. </p>
-            <p>Your phone number is <%= phoneNumber %>. </p>
+            <p>Your phone number is <%= phone %>. </p>
             <p>Your address is <%= address %>. </p>
             <p>Your city is <%= city %>. </p>
             <p>Your state is <%= state %>. </p>
             <p>Your postcode is <%= postCode %>. </p>
-            <p>Your date of birth is <%= dateOfBirth %>. </p>
-               
+            <p>Your date of birth is <%= dateOfBirth %>. </p>               
         </body>
 </html>
