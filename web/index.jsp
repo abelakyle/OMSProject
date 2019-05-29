@@ -4,6 +4,7 @@
     Author     : carti
 --%>
 
+<%@page import="uts.wsd.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -17,18 +18,28 @@
                 <h1>Online Movie Store</h1>                    
         </header>
         
+        <% 
+            User user = (User)session.getAttribute("user");      
+        %>                          
+        
         <div class ="navbar">
                 <span class="leftalign">
                         <a href="home.jsp">Home</a>                       
                 </span>
                 <span class="rightalign">
+                <% if(user != null){ %>
+                        <a href="myAccount.jsp"> <%=user%>'s Profile</a>
+                        <a href="cart.jsp">Cart</a>
+                <% } else { %>                      
                         <a href="login.jsp">Log In</a>
                         <a href="register.jsp">Register</a>
                         <a href="cart.jsp">Cart</a>
+                <% } %>                    
                 </span> 
         </div>
         
         <body>
+            <p><a href="signOut.jsp">Sign out</a></p>
                 <p><a href="register.jsp">Register</a></p>
                 <p><a href="login.jsp">Login</a></p>
                 <p><a href="catalogue.jsp">Movie Catalogue</a></p>

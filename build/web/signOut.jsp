@@ -1,7 +1,7 @@
 <%-- 
-    Document   : profile
-    Created on : 28/05/2019, 8:36:20 PM
-    Author     : Kyle_2
+    Document   : signOut
+    Created on : 29/05/2019, 11:47:20 AM
+    Author     : Kyle
 --%>
 
 <%@page import="uts.wsd.User"%>
@@ -11,34 +11,32 @@
         <head>
                 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
                 <link rel="stylesheet" type="text/css" href="style/stylish.css">
-                <title>Profile</title>              <!-------Replace with user's name? (x's Profile) --------->
+                <title>Sign Out</title>
         </head>
         
         <header>
                 <h1>Online Movie Store</h1>                    
         </header>
         
-        <% 
-            User user = (User)session.getAttribute("user");      
+        <%
+                session.invalidate();
         %>                          
         
         <div class ="navbar">
                 <span class="leftalign">
                         <a href="home.jsp">Home</a>                       
                 </span>
-                <span class="rightalign">
-                <% if(user != null){ %>
-                        <a href="myAccount.jsp"> <%=user%>'s Profile</a>
-                        <a href="cart.jsp">Cart</a>
-                <% } else { %>                      
+                <span class="rightalign">                
                         <a href="login.jsp">Log In</a>
                         <a href="register.jsp">Register</a>
                         <a href="cart.jsp">Cart</a>
                 <% } %>                    
                 </span> 
-        </div>
-        
-    <body>
-        <h1>Hello World!</h1>
-    </body>
+        </div>      
+    
+        <body>
+                <h1>Sign Out</h1>
+                <p>You have been signed out</p>
+                <p><button onclick="window.location.href = 'index.jsp';">Home</button></p>
+        </body>
 </html>

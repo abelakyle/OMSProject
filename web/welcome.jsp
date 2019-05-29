@@ -28,11 +28,11 @@
             String address = request.getParameter("address");
             String city = request.getParameter("city");
             String state = request.getParameter("state");
-            String postCode = request.getParameter("postCode");
+            String postcode = request.getParameter("postCode");
             String dateOfBirth = request.getParameter("dateOfBirth");
-            String id = ""+(new Random().nextInt(999999));
+            String ID = ""+(new Random().nextInt(999999));
             
-            User user = new User();
+            User user = new User(firstName, lastName, ID, password, email, phone, address, city, state, postcode, dateOfBirth);
             session.setAttribute("user", user);
         %>                          
         
@@ -42,27 +42,26 @@
                 </span>
                 <span class="rightalign">
                 <% if(user != null){ %>
+                        <a href="myAccount.jsp"> <%=user%>'s Profile</a>
+                        <a href="cart.jsp">Cart</a>
+                <% } else { %>                      
                         <a href="login.jsp">Log In</a>
                         <a href="register.jsp">Register</a>
                         <a href="cart.jsp">Cart</a>
-                <% } else { %>
-                        <a href="myAccount.jsp"><%=user%></a>
-                        <a href="cart.jsp">Cart</a>
-                <% } %>
-                        
+                <% } %>                    
                 </span> 
         </div>
         
         <body>     
             <p>Welcome: <%= firstName + " " + lastName %>! </p>
-            <p>Your ID is <%= id %>. </p>
+            <p>Your ID is <%= ID %>. </p>
             <p>Your email is <%= email %>. </p>
             <p>Your password is <%= password %>. </p>
             <p>Your phone number is <%= phone %>. </p>
             <p>Your address is <%= address %>. </p>
             <p>Your city is <%= city %>. </p>
             <p>Your state is <%= state %>. </p>
-            <p>Your postcode is <%= postCode %>. </p>
+            <p>Your postcode is <%= postcode %>. </p>
             <p>Your date of birth is <%= dateOfBirth %>. </p>               
         </body>
 </html>
