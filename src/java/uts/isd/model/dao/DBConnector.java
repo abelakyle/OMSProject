@@ -1,12 +1,11 @@
-/**
- *
- * @author Kyle
- */
- 
 package uts.isd.model.dao;
 
+ 
+
 import java.sql.Connection;
+
 import java.sql.DriverManager;
+
 import java.sql.SQLException;
 
  
@@ -15,9 +14,9 @@ public class DBConnector {
 
  
 
-private String URL = "jdbc:derby://localhost:1527/onlineDB";
+private String URL = "jdbc:derby://localhost:1527/OMS_DB";
 
-private String dbuser = "isduserr";
+private String dbuser = "isduser";
 
 private String dbpass = "admin";
 

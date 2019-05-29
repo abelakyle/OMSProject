@@ -1,22 +1,10 @@
-package uts.wsd;
-
+package uts.isd.model;
 
 import java.io.Serializable;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- *
- * @author Kyle_2
- */
 public class User implements Serializable {
 
-    private String firstName;
-    private String lastName;
+    private String name;
     private String ID;
     private String password;
     private String email;
@@ -28,9 +16,8 @@ public class User implements Serializable {
     private String dateOfBirth;
 
     
-    public User(String firstName, String lastName, String ID, String password, String email, String phone, String address, String city, String state, String postcode, String dateOfBirth) {
-        this.firstName = firstName;
-        this.lastName = lastName;
+    public User(String ID, String email, String password, String name, String phone, String address, String city, String state, String postcode, String dateOfBirth) {
+        this.name = name;
         this.ID = ID;
         this.password = password;
         this.email = email;
@@ -46,9 +33,8 @@ public class User implements Serializable {
     
     }
     
-    public void updateDetails(String firstName, String lastName, String ID, String password, String email, String phone, String address, String city, String state, String postcode, String dateOfBirth){
-        this.firstName = firstName;
-        this.lastName = lastName;
+    public void updateDetails(String ID, String email, String password, String name, String phone, String address, String city, String state, String postcode, String dateOfBirth){
+        this.name = name;
         this.ID = ID;
         this.password = password;
         this.email = email;
@@ -72,20 +58,12 @@ public class User implements Serializable {
         return matchId(ID) && matchPassword(password);
     }
     
-    public String getFirstName() {
-        return firstName;
+    public String getName() {
+        return name;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getID() {
@@ -162,7 +140,7 @@ public class User implements Serializable {
 
     @Override
     public String toString() {
-        return firstName +  lastName;
+        return name;
     }
 
     
