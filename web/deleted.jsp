@@ -14,6 +14,7 @@
         <title>Delete Account Page</title>
     </head>
 
+    <jsp:include page="header.jsp"/>
     <%
      
         User user = (User) session.getAttribute("userEdit");

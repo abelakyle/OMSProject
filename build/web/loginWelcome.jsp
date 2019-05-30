@@ -7,6 +7,7 @@
         <script type="text/javascript" src="js/script.js"></script>
         <title>Welcome Page</title>
     </head>    
+    <jsp:include page="header.jsp"/>
     <%
         User user = (User)session.getAttribute("userLogin");
     %>

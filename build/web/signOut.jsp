@@ -14,21 +14,8 @@
                 <title>Sign Out</title>
         </head>
         
-        <header>
-                <h1>Online Movie Store</h1>                    
-        </header>
-        
         <% session.invalidate(); %>                                 
-        <div class ="navbar">
-                <span class="leftalign">
-                            <a href="index.jsp">Home</a>
-                </span>
-                <span class="rightalign">                
-                        <a href="login.jsp">Log In</a>
-                        <a href="register.jsp">Register</a>
-                        <a href="cart.jsp">Cart</a>              
-                </span> 
-        </div>      
+        <jsp:include page="header.jsp"/>      
     
         <body>
                 <h1>Sign Out</h1>
