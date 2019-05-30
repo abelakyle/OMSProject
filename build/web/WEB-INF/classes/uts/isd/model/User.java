@@ -1,22 +1,10 @@
-package uts.wsd;
-
+package uts.isd.model;
 
 import java.io.Serializable;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- *
- * @author Kyle_2
- */
 public class User implements Serializable {
 
-    private String firstName;
-    private String lastName;
+    private String name;
     private String ID;
     private String password;
     private String email;
@@ -25,12 +13,11 @@ public class User implements Serializable {
     private String city;
     private String state;
     private String postcode;
-    private String dateOfBirth;
+    private String dob;
 
     
-    public User(String firstName, String lastName, String ID, String password, String email, String phone, String address, String city, String state, String postcode, String dateOfBirth) {
-        this.firstName = firstName;
-        this.lastName = lastName;
+    public User(String ID, String email, String password, String name, String phone, String address, String city, String state, String postcode, String dob) {
+        this.name = name;
         this.ID = ID;
         this.password = password;
         this.email = email;
@@ -39,16 +26,13 @@ public class User implements Serializable {
         this.city = city;
         this.state = state;
         this.postcode = postcode;
-        this.dateOfBirth = dateOfBirth;
+        this.dob = dob;
     }
     
-    public User() {
+    public User() { }
     
-    }
-    
-    public void updateDetails(String firstName, String lastName, String ID, String password, String email, String phone, String address, String city, String state, String postcode, String dateOfBirth){
-        this.firstName = firstName;
-        this.lastName = lastName;
+    public void updateDetails(String ID, String email, String password, String name, String phone, String address, String city, String state, String postcode, String dob){
+        this.name = name;
         this.ID = ID;
         this.password = password;
         this.email = email;
@@ -57,42 +41,22 @@ public class User implements Serializable {
         this.city = city;
         this.state = state;
         this.postcode = postcode;
-        this.dateOfBirth = dateOfBirth;
+        this.dob = dob;
     }
 
-    public boolean matchPassword(String password){
-        return this.password.equals(password);
-    }
-    
-    public boolean matchId(String ID){
-        return this.ID.equals(ID);
-    }
-    
-    public boolean checkDetails(String ID, String password){
-        return matchId(ID) && matchPassword(password);
-    }
-    
-    public String getFirstName() {
-        return firstName;
+    public String getName() {
+        return name;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getID() {
         return ID;
     }
 
-    public void setId(String ID) {
+    public void setID(String ID) {
         this.ID = ID;
     }
 
@@ -152,18 +116,28 @@ public class User implements Serializable {
         this.postcode = postcode;
     }
 
-    public String getDateOfBirth() {
-        return dateOfBirth;
+    public String getDob() {
+        return dob;
     }
 
-    public void setDateOfBirth(String dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
+    public void setDob(String dob) {
+        this.dob = dob;
+    }
+     
+    public boolean matchPassword(String password){
+        return this.password.equals(password);
+    }
+    
+    public boolean matchId(String ID){
+        return this.ID.equals(ID);
+    }
+    
+    public boolean checkDetails(String ID, String password){
+        return matchId(ID) && matchPassword(password);
     }
 
     @Override
     public String toString() {
-        return firstName +  lastName;
+        return name;
     }
-
-    
 }

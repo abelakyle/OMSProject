@@ -1,13 +1,6 @@
-/*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
-*/
-/* 
-    Created on : 28/05/2019, 7:45:41 PM
-    Author     : Kyle_2
-*/
 
+
+/* Kyle CSS */
 header{
     background-color: whitesmoke;
     text-align: center;
@@ -39,5 +32,31 @@ header{
 
 .rightalign{
     float:right;
+}
+
+.error{
+    font-family: "Times New Roman", Times, serif;
+    font-weight: bold;
+    font-size: 20px;
+    color:red;
+    /*text-shadow: 1px 1px 1px black, 0 0 10px blue, 0 0 3px cyan; */
+}
+
+
+/* Josh CSS */
+table.account{                
+    border-collapse: collapse;
+    border: 1px solid black;
+    background-color: #E67E22;
+}
+
+thead.h{
+    text-align: center;
+    font-weight: bold;
+}
+td.a{
+    border: 1px solid black;     
+    padding: 2px;
+    width:230px;
 }
 

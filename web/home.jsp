@@ -5,7 +5,7 @@
 --%>
 
 <%@page import="java.sql.DriverManager"%>
-<%@page import="uts.wsd.User"%>
+<%@page import="uts.isd.model.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -19,13 +19,14 @@
                 <h1>Online Movie Store</h1>                    
         </header>
         
-        <% 
-            User user = (User)session.getAttribute("user");      
-        %>                          
-        
+        <% User user = (User)session.getAttribute("userLogin"); %>                                 
         <div class ="navbar">
                 <span class="leftalign">
-                        <a href="home.jsp">Home</a>                       
+                        <% if(user != null){ %>
+                            <a href="home.jsp"> Home</a>
+                        <% } else { %> 
+                            <a href="index.jsp">Home</a>
+                        <% } %>
                 </span>
                 <span class="rightalign">
                 <% if(user != null){ %>

@@ -1,8 +1,8 @@
 package uts.isd.model.dao;
 
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.sql.Statement;
+
+import java.sql.*;
+import uts.isd.model.User;
 
 public class DBManager {
     
@@ -12,18 +12,70 @@ public class DBManager {
             st = conn.createStatement();
         }
         
-        public void addUser(String firstName, String lastName, String ID, String password, String email, String phone, String address, String city, String state, String postcode, String dob) throws SQLException {
-            String createQueryString = "insert into onlineDB "+ "values('" + ID + "','" + email + "','"+ firstName + "','" + lastName + "','" + password + "','" + email + "','" + phone + "','" + address + "','" + city + "','" + state + "','" + postcode + "','" +dob + "')";
-            st.executeQuery(createQueryString);
+        public void addUser(String ID, String email, String password, String name, String phone, String address, String city, String state, String postcode, String dob) throws SQLException {
+            String createQueryString = "insert into Users "+ "values('" + ID + "','" + email + "','"+ password + "','" + name + "','" + phone + "','" + address + "','" + city + "','" + state + "','" + postcode + "','" +dob + "')";
+            boolean recordCreated = st.executeUpdate(createQueryString) > 0;
+            
+            if(recordCreated){
+                System.out.println("record created");
+                } else {
+                 System.out.println("record not created");
+                 }
+            
             
             //might need testing whether record was created -check Master 
         }
             
-        public void updateUser(String firstName, String lastName, String ID, String password, String email, String phone, String address, String city, String state, String postcode, String dob) throws SQLException{
-            String createQueryString = "update onlineDB set firstname ='" + firstName +  "', lastname = '" + lastName + "', password ='" + password + "', email ='" + email + "', phone = '" + phone + "', address= '" + address + "', city ='" + city + "', state ='" + state + "', postcode ='" + postcode + "', dob ='" +dob + "' where ID = '" + ID + "'";
+        public void updateUser(String ID, String email, String password, String name, String phone, String address, String city, String state, String postcode, String dob) throws SQLException{
+            
+            String createQueryString = "update users set name ='" +name+ "' , password ='" + password + "', email ='" + email + "', phone = '" + phone + "', address= '" + address + "', city ='" + city + "', state ='" + state + "', postcode ='" + postcode + "', dob ='" +dob + "' where ID = '" + ID + "'";
             st.executeUpdate(createQueryString);
             
             //might need testing whether record was update -check Master
         }
+        
+        public User findUser(String email, String password) throws SQLException{
+            
+                String createQueryString = "select * from users where email = '"+ email +"' and password ='"+ password + "'";
+                ResultSet rs = st.executeQuery(createQueryString);
+            
+                boolean hasUser = rs.next();
+                User userFromDB = null;
+
+                    if (hasUser){
+                            String uID = rs.getString("ID");
+                            String uEmail = rs.getString("email");
+                            String uPassword = rs.getString("password");
+                            String uName = rs.getString("name");
+                            String uPhone = rs.getString("phone");
+                            String uAddress = rs.getString("address");
+                            String uCity = rs.getString("city");
+                            String uState = rs.getString("state");
+                            String uPostcode = rs.getString("postcode");
+                            String uDateOfBirth = rs.getString("dob");
+
+                            userFromDB = new User (uID, uEmail,  uPassword, uName,  uPhone,  uAddress,  uCity,  uState,  uPostcode,  uDateOfBirth);
+                    }       
+                rs.close();
+
+                return userFromDB;
+                
+                //need to validate inputs?
+                //if user !exist then return error or something
+        }
+        
+         public void deleteUser(String ID) throws SQLException{
+        //code for delete-operation
+        
+        String deleteQueryString = "delete from users where ID= '" + ID + "' ";
+        boolean recordDeleted = st.executeUpdate(deleteQueryString) > 0;
+         
+         if (recordDeleted){
+         System.out.println("record deleted");
+         }
+         else {
+         System.out.println("record not deleted");
+         }
+    }
         
 }

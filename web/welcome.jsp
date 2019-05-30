@@ -4,7 +4,7 @@
     Author     : carti
 --%>
 
-<%@page import="uts.wsd.User"%>
+<%@page import="uts.isd.model.User"%>
 <%@page import="java.util.Random"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -19,26 +19,15 @@
                 <h1>Online Movie Store</h1>                    
         </header>
         
-        <%
-            String email = request.getParameter("email");
-            String password = request.getParameter("password");
-            String firstName = request.getParameter("firstName");
-            String lastName = request.getParameter("lastName");
-            String phone = request.getParameter("phone");
-            String address = request.getParameter("address");
-            String city = request.getParameter("city");
-            String state = request.getParameter("state");
-            String postcode = request.getParameter("postCode");
-            String dateOfBirth = request.getParameter("dateOfBirth");
-            String ID = ""+(new Random().nextInt(999999));
-            
-            User user = new User(firstName, lastName, ID, password, email, phone, address, city, state, postcode, dateOfBirth);
-            session.setAttribute("user", user);
-        %>                          
+        <% User user = (User)session.getAttribute("userLogin"); %>                          
         
         <div class ="navbar">
                 <span class="leftalign">
-                        <a href="home.jsp">Home</a>                       
+                    <% if(user!=null) { %>
+                        <a href="home.jsp">Home</a>
+                        <% } else { %>
+                        <a href="index.jsp">Home</a>
+                        <% } %>
                 </span>
                 <span class="rightalign">
                 <% if(user != null){ %>
@@ -53,15 +42,17 @@
         </div>
         
         <body>     
-            <p>Welcome: <%= firstName + " " + lastName %>! </p>
-            <p>Your ID is <%= ID %>. </p>
-            <p>Your email is <%= email %>. </p>
-            <p>Your password is <%= password %>. </p>
-            <p>Your phone number is <%= phone %>. </p>
-            <p>Your address is <%= address %>. </p>
-            <p>Your city is <%= city %>. </p>
-            <p>Your state is <%= state %>. </p>
-            <p>Your postcode is <%= postcode %>. </p>
-            <p>Your date of birth is <%= dateOfBirth %>. </p>               
+            <p>Welcome: <%= user.getName() %>! </p>
+            <p>Your ID is <%= user.getID() %>. </p>
+            <p>Your email is <%= user.getEmail() %>. </p>
+            <p>Your password is <%= user.getPassword() %>. </p>
+            <p>Your phone number is <%= user.getPhone() %>. </p>
+            <p>Your address is <%= user.getAddress() %>. </p>
+            <p>Your city is <%= user.getCity() %>. </p>
+            <p>Your state is <%= user.getState() %>. </p>
+            <p>Your postcode is <%= user.getPostcode() %>. </p>
+            <p>Your date of birth is <%= user.getDob() %>. </p>
+            <p><button class="button" type="button" onclick="location.href = 'home.jsp'" > Home Page </button></p>
+
         </body>
 </html>

@@ -13,10 +13,10 @@ public class User implements Serializable {
     private String city;
     private String state;
     private String postcode;
-    private String dateOfBirth;
+    private String dob;
 
     
-    public User(String ID, String email, String password, String name, String phone, String address, String city, String state, String postcode, String dateOfBirth) {
+    public User(String ID, String email, String password, String name, String phone, String address, String city, String state, String postcode, String dob) {
         this.name = name;
         this.ID = ID;
         this.password = password;
@@ -26,14 +26,12 @@ public class User implements Serializable {
         this.city = city;
         this.state = state;
         this.postcode = postcode;
-        this.dateOfBirth = dateOfBirth;
+        this.dob = dob;
     }
     
-    public User() {
+    public User() { }
     
-    }
-    
-    public void updateDetails(String ID, String email, String password, String name, String phone, String address, String city, String state, String postcode, String dateOfBirth){
+    public void updateDetails(String ID, String email, String password, String name, String phone, String address, String city, String state, String postcode, String dob){
         this.name = name;
         this.ID = ID;
         this.password = password;
@@ -43,21 +41,9 @@ public class User implements Serializable {
         this.city = city;
         this.state = state;
         this.postcode = postcode;
-        this.dateOfBirth = dateOfBirth;
+        this.dob = dob;
     }
 
-    public boolean matchPassword(String password){
-        return this.password.equals(password);
-    }
-    
-    public boolean matchId(String ID){
-        return this.ID.equals(ID);
-    }
-    
-    public boolean checkDetails(String ID, String password){
-        return matchId(ID) && matchPassword(password);
-    }
-    
     public String getName() {
         return name;
     }
@@ -70,7 +56,7 @@ public class User implements Serializable {
         return ID;
     }
 
-    public void setId(String ID) {
+    public void setID(String ID) {
         this.ID = ID;
     }
 
@@ -130,18 +116,28 @@ public class User implements Serializable {
         this.postcode = postcode;
     }
 
-    public String getDateOfBirth() {
-        return dateOfBirth;
+    public String getDob() {
+        return dob;
     }
 
-    public void setDateOfBirth(String dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
+    public void setDob(String dob) {
+        this.dob = dob;
+    }
+     
+    public boolean matchPassword(String password){
+        return this.password.equals(password);
+    }
+    
+    public boolean matchId(String ID){
+        return this.ID.equals(ID);
+    }
+    
+    public boolean checkDetails(String ID, String password){
+        return matchId(ID) && matchPassword(password);
     }
 
     @Override
     public String toString() {
         return name;
     }
-
-    
 }

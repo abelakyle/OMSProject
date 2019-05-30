@@ -4,10 +4,11 @@
     Author     : Kyle
 --%>
 
-<%@page import="java.lang.String"%>
-<%@page import="uts.isd.model.User"%>
-<%@page import="uts.isd.model.dao.DBManager"%>
+<%@page import="uts.isd.model.dao.*"%>
+<%@page import="uts.isd.controller.*"%>
+<%@page import="java.util.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="uts.isd.model.*" import="java.sql.*"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -21,13 +22,13 @@
                         DBManager manager = (DBManager)session.getAttribute("manager");
 
 
-                        String ID = request.getParameter("ID");
+                        String email = request.getParameter("email");
                         String password = request.getParameter("password");            
-                        User users = manager.findUser(ID, password);
-                        User user = new User("name",  "ID",  "password",  "email",  "phone",  "address",  "city",  "state",  "postcode",  "dateOfBirth");
+                        User users = manager.findUser(email, password);
+                        //User user = new User("name",  "ID",  "password",  "email",  "phone",  "address",  "city",  "state",  "postcode",  "dateOfBirth");
                         if (users != null) {
-                            session.setAttribute("userLogin", user);
-                            response.sendRedirect("welcome.jsp");                        
+                            session.setAttribute("userLogin", users);
+                            response.sendRedirect("loginWelcome.jsp");                        
                         }else{
                             session.setAttribute("existErr", "User profile does not exist!");
                             response.sendRedirect("login.jsp");                               

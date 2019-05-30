@@ -5,6 +5,7 @@
 --%>
 
 <%@page import="uts.isd.model.User"%>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -19,11 +20,14 @@
                 <h1>Online Movie Store</h1>                    
         </header>
         
-        <% User user = (User)session.getAttribute("user"); %>
-        
+        <% User user = (User)session.getAttribute("user"); %>                                 
         <div class ="navbar">
                 <span class="leftalign">
-                        <a href="home.jsp">Home</a>                       
+                        <% if(user != null){ %>
+                            <a href="home.jsp"> Home</a>
+                        <% } else { %> 
+                            <a href="index.jsp">Home</a>   
+                            <% } %>
                 </span>
                 <span class="rightalign">
                 <% if(user != null){ %>
@@ -38,21 +42,18 @@
         </div>
         
         <body>
-                <h1>Sign In</h1>
-                <% if(user != null){ %>
-                        <p>You are already signed in.</p>
-                <% }   else    { %>
-                        <form action="login.jsp" method="POST">
-                                <table>
-                                        <tr><td>ID</td><td><input type="text" name="email"></td></tr>
-                                        <tr><td>Password</td><td><input type="text" name="password"></td></tr>
-                                        <tr>
-                                            <td><label for=""></label></td>
-                                            <td><input name="" type="submit" value="Log In"></td>
-                                        </tr>
-                                <table>
-                        </form>
-               <%  } %>
+                <h1>Enter your details to login: <span class="error"><c:if test="${existErr!=null}"><span class="error"><c:out value="${existErr}"/></span></c:if></span></h1>
+                <form action="loginAction.jsp" method="POST">
+                        <table>
+                                <tr><td>Email</td><td><input type="text" name="email"></td></tr>
+                                <tr><td>Password</td><td><input type="password" name="password"></td></tr>
+                                <tr>
+                                    <td><label for=""></label></td>
+                                    <td><input name="" type="submit" value="Log In"></td>
+                                </tr>
+                        <table>
+                </form>
+                ${existErr = null}
                
         </body> 
 </html>

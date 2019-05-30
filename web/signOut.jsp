@@ -4,7 +4,7 @@
     Author     : Kyle
 --%>
 
-<%@page import="uts.wsd.User"%>
+<%@page import="uts.isd.model.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -18,19 +18,15 @@
                 <h1>Online Movie Store</h1>                    
         </header>
         
-        <%
-                session.invalidate();
-        %>                          
-        
+        <% session.invalidate(); %>                                 
         <div class ="navbar">
                 <span class="leftalign">
-                        <a href="home.jsp">Home</a>                       
+                            <a href="index.jsp">Home</a>
                 </span>
                 <span class="rightalign">                
                         <a href="login.jsp">Log In</a>
                         <a href="register.jsp">Register</a>
-                        <a href="cart.jsp">Cart</a>
-                <% } %>                    
+                        <a href="cart.jsp">Cart</a>              
                 </span> 
         </div>      
     

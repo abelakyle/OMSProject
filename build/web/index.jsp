@@ -4,7 +4,7 @@
     Author     : carti
 --%>
 
-<%@page import="uts.wsd.User"%>
+<%@page import="uts.isd.model.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -18,13 +18,14 @@
                 <h1>Online Movie Store</h1>                    
         </header>
         
-        <% 
-            User user = (User)session.getAttribute("user");      
-        %>                          
-        
+        <% User user = (User)session.getAttribute("userLogin"); %>                                 
         <div class ="navbar">
                 <span class="leftalign">
-                        <a href="home.jsp">Home</a>                       
+                        <% if(user != null){ %>
+                            <a href="home.jsp"> Home</a>
+                        <% } else { %> 
+                            <a href="index.jsp">Home</a>       
+                        <% } %>
                 </span>
                 <span class="rightalign">
                 <% if(user != null){ %>
@@ -39,10 +40,10 @@
         </div>
         
         <body>
-            <p><a href="signOut.jsp">Sign out</a></p>
                 <p><a href="register.jsp">Register</a></p>
                 <p><a href="login.jsp">Login</a></p>
                 <p><a href="catalogue.jsp">Movie Catalogue</a></p>
                 <p><a href="cart.jsp">Cart</a></p>
+                <jsp:include page="/ConnServlet" flush="true" />
         </body>
 </html>
