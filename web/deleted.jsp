@@ -22,7 +22,7 @@
     <body>
 
         <h1>Are you sure you want to delete this account?<h1>        
-        <form action="delete_user.jsp" method="POST">
+        <form action="deleteUser.jsp" method="POST">
             <table>
                 <tr>
                     <td>

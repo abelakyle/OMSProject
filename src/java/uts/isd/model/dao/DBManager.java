@@ -12,8 +12,8 @@ public class DBManager {
             st = conn.createStatement();
         }
         
-        public void addUser(String ID, String email, String password, String name, String phone, String address, String city, String state, String postcode, String dob) throws SQLException {
-            String createQueryString = "insert into Users "+ "values('" + ID + "','" + email + "','"+ password + "','" + name + "','" + phone + "','" + address + "','" + city + "','" + state + "','" + postcode + "','" +dob + "')";
+        public void addUser(String ID, String email, String password, String name, String phone) throws SQLException {
+            String createQueryString = "insert into Users "+ "values('" + ID + "','" + email + "','"+ password + "','" + name + "','" + phone + "')";
             boolean recordCreated = st.executeUpdate(createQueryString) > 0;
             
             if(recordCreated){
@@ -26,9 +26,9 @@ public class DBManager {
             //might need testing whether record was created -check Master 
         }
             
-        public void updateUser(String ID, String email, String password, String name, String phone, String address, String city, String state, String postcode, String dob) throws SQLException{
+        public void updateUser(String ID, String email, String password, String name, String phone) throws SQLException{
             
-            String createQueryString = "update users set name ='" +name+ "' , password ='" + password + "', email ='" + email + "', phone = '" + phone + "', address= '" + address + "', city ='" + city + "', state ='" + state + "', postcode ='" + postcode + "', dob ='" +dob + "' where ID = '" + ID + "'";
+            String createQueryString = "update users set name ='" +name+ "' , password ='" + password + "', email ='" + email + "', phone = '" + phone +  "' where ID = '" + ID + "'";
             st.executeUpdate(createQueryString);
             
             //might need testing whether record was update -check Master
@@ -48,13 +48,8 @@ public class DBManager {
                             String uPassword = rs.getString("password");
                             String uName = rs.getString("name");
                             String uPhone = rs.getString("phone");
-                            String uAddress = rs.getString("address");
-                            String uCity = rs.getString("city");
-                            String uState = rs.getString("state");
-                            String uPostcode = rs.getString("postcode");
-                            String uDateOfBirth = rs.getString("dob");
 
-                            userFromDB = new User (uID, uEmail,  uPassword, uName,  uPhone,  uAddress,  uCity,  uState,  uPostcode,  uDateOfBirth);
+                            userFromDB = new User (uID, uEmail,  uPassword, uName,  uPhone);
                     }       
                 rs.close();
 

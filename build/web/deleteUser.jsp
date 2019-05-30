@@ -21,7 +21,7 @@
     <body >
 
         <h1>Are you sure you want to delete this account?<h1>        
-        <form action="delete_user.jsp" method="POST">
+        <form action="deleteUser.jsp" method="POST">
             <table>
                 <tr><td>User ID</td><td><%= user.getID()%></td></tr>
 
@@ -29,7 +29,7 @@
                     <td>
                         <button class="button" type="button" onclick="location.href = 'deleted.jsp'" > Yes </button>
                         &emsp; 
-                        <button class="button" type="button" onclick="location.href = 'edit_user.jsp'" > No </button>
+                        <button class="button" type="button" onclick="location.href = 'editUser.jsp'" > No </button>
                     </td>
                 </tr>
             </table>

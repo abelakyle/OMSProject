@@ -19,7 +19,6 @@
         <p>Your ID is: <%= user.getID() %></p>
         <p>Your email: <%= user.getEmail() %></p>
         <p>Your phone number: <%= user.getPhone() %></p> 
-        <p>Your DOB: <%= user.getDob() %></p>
         <p>Your password is: <%= user.getPassword() %></p>        
                
 

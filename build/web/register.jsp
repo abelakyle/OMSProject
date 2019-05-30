@@ -24,11 +24,6 @@
                         <tr><td>Password</td><td><input type="text" name="password"></td></tr>
                         <tr><td>Full Name</td><td><input type="text" name="name"></td></tr>
                         <tr><td>Phone Number</td><td><input type="text" name="phone"></td></tr>
-                        <tr><td>Address</td><td><input type="text" name="address"></td></tr>
-                        <tr><td>City</td><td><input type="text" name="city"></td></tr>
-                        <tr><td>State</td><td><input type="text" name="state"></td></tr>
-                        <tr><td>Post Code</td><td><input type="text" name="postCode"></td></tr>
-                        <tr><td>Date of Birth</td><td><input type="text" name="dob"></td></tr>
                         <tr>
                             <td><label for=""></label></td>
                             <td><input name="" type="submit" value="Register">

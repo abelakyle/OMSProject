@@ -47,11 +47,6 @@
                     <td class="a">Name</td>
                     <td class="a">Email</td>
                     <td class="a">Password</td>
-                    <td class="a">Address</td>
-                    <td class="a">City</td>
-                    <td class="a">State</td>
-                    <td class="a">Postcode</td>                    
-                    <td class="a">DOB</td>
                     <td class="a">Phone Number</td>
                 </tr>
             </thead>
@@ -60,12 +55,6 @@
                     <td class="a"> ${user.ID} </td>
                     <td class="a" > ${user.name} </td>
                     <td class="a"> ${user.email} </td>
-                    <td class="a"> ${user.password} </td>
-                    <td class="a"> ${user.address} </td>
-                    <td class="a"> ${user.city} </td>
-                    <td class="a"> ${user.state} </td>
-                    <td class="a"> ${user.postcode} </td>
-                    <td class="a"> ${user.dob} </td>
                     <td class="a"> ${user.phone} </td>
                 </tr>
             </tbody>

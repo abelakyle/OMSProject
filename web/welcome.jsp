@@ -25,11 +25,6 @@
             <p>Your email is <%= user.getEmail() %>. </p>
             <p>Your password is <%= user.getPassword() %>. </p>
             <p>Your phone number is <%= user.getPhone() %>. </p>
-            <p>Your address is <%= user.getAddress() %>. </p>
-            <p>Your city is <%= user.getCity() %>. </p>
-            <p>Your state is <%= user.getState() %>. </p>
-            <p>Your postcode is <%= user.getPostcode() %>. </p>
-            <p>Your date of birth is <%= user.getDob() %>. </p>
             <p><button class="button" type="button" onclick="location.href = 'home.jsp'" > Home Page </button></p>
 
         </body>

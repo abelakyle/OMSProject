@@ -9,39 +9,24 @@ public class User implements Serializable {
     private String password;
     private String email;
     private String phone;
-    private String address;
-    private String city;
-    private String state;
-    private String postcode;
-    private String dob;
 
     
-    public User(String ID, String email, String password, String name, String phone, String address, String city, String state, String postcode, String dob) {
+    public User(String ID, String email, String password, String name, String phone) {
         this.name = name;
         this.ID = ID;
         this.password = password;
         this.email = email;
         this.phone = phone;
-        this.address = address;
-        this.city = city;
-        this.state = state;
-        this.postcode = postcode;
-        this.dob = dob;
     }
     
     public User() { }
     
-    public void updateDetails(String ID, String email, String password, String name, String phone, String address, String city, String state, String postcode, String dob){
+    public void updateDetails(String ID, String email, String password, String name, String phone){
         this.name = name;
         this.ID = ID;
         this.password = password;
         this.email = email;
         this.phone = phone;
-        this.address = address;
-        this.city = city;
-        this.state = state;
-        this.postcode = postcode;
-        this.dob = dob;
     }
 
     public String getName() {
@@ -82,46 +67,6 @@ public class User implements Serializable {
 
     public void setPhone(String phone) {
         this.phone = phone;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public String getState() {
-        return state;
-    }
-
-    public void setState(String state) {
-        this.state = state;
-    }
-
-    public String getPostcode() {
-        return postcode;
-    }
-
-    public void setPostcode(String postcode) {
-        this.postcode = postcode;
-    }
-
-    public String getDob() {
-        return dob;
-    }
-
-    public void setDob(String dob) {
-        this.dob = dob;
     }
      
     public boolean matchPassword(String password){

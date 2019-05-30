@@ -26,7 +26,6 @@
                 <tr><td>Full name</td><td><input type="text" value="<%= user.getName()%>" name="name"></td></tr>
                 <tr><td>Email</td><td><input type="text" value="<%= user.getEmail()%>" name="email"></td></tr>                
                 <tr><td>Password</td><td><input type="password" value="<%= user.getPassword()%>" name="password"></td></tr>   
-                <tr><td>Date of Birth</td><td><input type="date" value="<%= user.getDob()%>" name="dob"></td></tr> 
                 <tr><td>Phone number</td><td><input type="text" value="<%= user.getPhone()%>" name="phone"></td></tr>
                 <tr><td><input type="hidden" value="updated" name="updated"></td>
                     <td><input class="button" type="submit" value="Save"> 
@@ -42,8 +41,7 @@
             DBManager manager = (DBManager)session.getAttribute("manager"); 
 
             if (request.getParameter("updated") != null) {
-                        manager.updateUser(request.getParameter("ID"), request.getParameter("email"), request.getParameter("password"), request.getParameter("name"), request.getParameter("phone"), 
-                                request.getParameter("address"), request.getParameter("city"), request.getParameter("state"), request.getParameter("postcode"), request.getParameter("dob"));
+                        manager.updateUser(request.getParameter("ID"), request.getParameter("email"), request.getParameter("password"), request.getParameter("name"), request.getParameter("phone"));
                         User userEdit = manager.findUser(user.getID(), request.getParameter("password"));
                         
                 if (userEdit != null) {

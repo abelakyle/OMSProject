@@ -25,15 +25,10 @@
                         String password = request.getParameter("password");
                         String name = request.getParameter("name");
                         String phone = request.getParameter("phone");
-                        String address = request.getParameter("address");
-                        String city = request.getParameter("city");
-                        String state = request.getParameter("state");
-                        String postcode = request.getParameter("postCode");
-                        String dob = request.getParameter("dob");
                         String ID = ""+(new Random().nextInt(999999));
 
-                        User users = new User( ID,  email,  password,  name,  phone,  address,  city,  state,  postcode,  dob);                                   
-                        manager.addUser(ID, email, password, name, phone, address, city, state, postcode, dob);
+                        User users = new User( ID,  email,  password,  name,  phone);                                   
+                        manager.addUser(ID, email, password, name, phone);
                         session.setAttribute("userLogin", users);
                         
                         if (users != null) {
