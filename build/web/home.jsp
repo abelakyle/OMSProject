@@ -18,7 +18,7 @@
         <jsp:include page="header.jsp"/>
         
         <body>
-                <p><a href="signOut.jsp">Sign out</a></p>
+                <p><a href="logout.jsp">Log Out</a></p>
                 <p><a href="myAccount.jsp">My Account</a></p> 
                 <p><a href="catalogue.jsp">Movie Catalogue</a></p>
                 <p><a href="cart.jsp">Cart</a></p>

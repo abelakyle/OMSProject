@@ -21,14 +21,13 @@
                         //Activate the database search-validate once DBManager functions are completed
                         DBManager manager = (DBManager)session.getAttribute("manager");
 
-
                         String email = request.getParameter("email");
                         String password = request.getParameter("password");            
                         User users = manager.findUser(email, password);
                         //User user = new User("name",  "ID",  "password",  "email",  "phone",  "address",  "city",  "state",  "postcode",  "dateOfBirth");
                         if (users != null) {
                             session.setAttribute("userLogin", users);
-                            response.sendRedirect("loginWelcome.jsp");                        
+                            response.sendRedirect("home.jsp");                        
                         }else{
                             session.setAttribute("existErr", "User profile does not exist!");
                             response.sendRedirect("login.jsp");                               

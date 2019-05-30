@@ -21,11 +21,12 @@
                         //Activate the database search-validate once DBManager functions are completed
                         DBManager manager = (DBManager)session.getAttribute("manager");
                         
+                        int key = 100000 + (new Random().nextInt(99999));
                         String email = request.getParameter("email");
                         String password = request.getParameter("password");
                         String name = request.getParameter("name");
                         String phone = request.getParameter("phone");
-                        String ID = ""+(new Random().nextInt(999999));
+                        String ID = "" + key;
 
                         User users = new User( ID,  email,  password,  name,  phone);                                   
                         manager.addUser(ID, email, password, name, phone);
