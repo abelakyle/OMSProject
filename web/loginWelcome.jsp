@@ -3,11 +3,13 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="css/demo.css"> 
+        <link rel="stylesheet" href="style/stylish.css"> 
         <script type="text/javascript" src="js/script.js"></script>
         <title>Welcome Page</title>
     </head>    
+    
     <jsp:include page="header.jsp"/>
+    
     <%
         User user = (User)session.getAttribute("userLogin");
     %>

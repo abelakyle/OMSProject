@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="css/demo.css"> 
+        <link rel="stylesheet" href="style/stylish.css"> 
         <script type="text/javascript" src="js/script.js"></script>
         <title>My Account Page</title>
     </head>
@@ -20,7 +20,7 @@
     %>
     <body >
         <h1>Account Profile</h1>        
-        <form action="edit_user.jsp" method="POST">
+        <form action="editUser.jsp" method="POST">
             <table>
                 <tr><td>Student ID</td><td><%= user.getID()%></td></tr>
                 <tr><td>Full name</td><td><input type="text" value="<%= user.getName()%>" name="name"></td></tr>
@@ -31,9 +31,9 @@
                 <tr><td><input type="hidden" value="updated" name="updated"></td>
                     <td><input class="button" type="submit" value="Save"> 
                         &emsp; 
-                        <button class="button" type="button" onclick="location.href = 'main.jsp'" > Main Page </button>
+                        <button class="button" type="button" onclick="location.href = 'home.jsp'" > Main Page </button>
                         &emsp; 
-                        <button class="button" type="button" onclick="location.href = 'delete_user.jsp'" > Delete User </button>
+                        <button class="button" type="button" onclick="location.href = 'deleteUser.jsp'" > Delete User </button>
                     </td>
                 </tr>
             </table>

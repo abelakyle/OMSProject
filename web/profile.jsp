@@ -30,11 +30,11 @@
             <tr bgcolor="lightgrey" ><td align="right" class="outline">You are logged in as  <%=log%></td></tr>
             <tr><td align="right">
                     <%if (user != null) { %>
-                    <u><a class="link" href="edit_user.jsp">Edit Account</a></u> 
+                    <u><a class="link" href="editUser.jsp">Edit Account</a></u> 
                         <%} else { %>
                     <u><a class="link" href="register.jsp">Register</a></u>
                         <%}%>
-                    &emsp;<u><a class="link" href="signOut.jsp">Logout</a></u>
+                    &emsp;<u><a class="link" href="logOut.jsp">Logout</a></u>
                 </td>
             </tr>                  
         </table>        

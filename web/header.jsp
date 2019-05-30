@@ -16,7 +16,7 @@
         <h1>Online Movie Store</h1>                    
     </header>
 
-    <% User user = (User) session.getAttribute("user"); %>                                 
+    <% User user = (User) session.getAttribute("userLogin"); %>                                 
     <div class ="navbar">
         <span class="leftalign">
             <% if (user != null) { %>
