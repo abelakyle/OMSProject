@@ -22,13 +22,10 @@
             String loginTime = (String)session.getAttribute("loginTime");
 
             String logoutTime = manager.stampTime();    
-           
-           //String logoutDate = "test";
-           //String logoutTime = "test";
             
           manager.createAccessLog(user.getID(), loginDate, loginTime, logoutTime);
-            session.invalidate();
-            response.sendRedirect("index.jsp");
+          session.invalidate();
+          response.sendRedirect("logout.jsp");
         %>
         
     <body>
