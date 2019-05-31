@@ -14,8 +14,6 @@
                 <title>Log Out</title>
         </head>
         
-        <% session.invalidate(); %>                                 
-
         <header>
         <h1>Online Movie Store</h1>                    
     </header>

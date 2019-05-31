@@ -6,18 +6,16 @@ public class Log {
     private String userID;
     private String loginDate;
     private String loginTime;
-    private String logoutDate;
     private String logoutTime;
 
     public Log() {
     }
 
-    public Log(int logID, String userID, String loginDate, String loginTime, String logoutDate, String logoutTime) {
+    public Log(int logID, String userID, String loginDate, String loginTime, String logoutTime) {
         this.logID = logID;
         this.userID = userID;
         this.loginDate = loginDate;
         this.loginTime = loginTime;
-        this.logoutDate = logoutDate;
         this.logoutTime = logoutTime;
     }
 
@@ -51,14 +49,6 @@ public class Log {
 
     public void setLoginTime(String loginTime) {
         this.loginTime = loginTime;
-    }
-
-    public String getLogoutDate() {
-        return logoutDate;
-    }
-
-    public void setLogoutDate(String logoutDate) {
-        this.logoutDate = logoutDate;
     }
 
     public String getLogoutTime() {

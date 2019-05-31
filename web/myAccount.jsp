@@ -17,7 +17,7 @@
     <body>
         <h1>Your Account Details</h1>
         
-        <p><a href="logout.jsp">Log Out</a></p>
+        <p><a href="logoutAction.jsp">Log Out</a></p>
         <p><a href="profile.jsp">Profile</a></p> 
         <p><a href="accessLog.jsp">Access Log</a></p>
         <p><a href="orderHistory.jsp">Order History</a></p>

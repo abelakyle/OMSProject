@@ -23,21 +23,52 @@
     <body>
         <h1> <%= user.getName() %>'s Access Log</h1>
         
-        <table class="account">
-            <thead class="h"><tr ><td class="a">Log ID</td><td class="a">Login Date</td><td class="a">Login Time</td><td class="a">Logout Date </td><td class="a">Logout Time</td></tr></thead>
+        <table class="account" align="Center">
+            <thead class="h"><tr ><td class="a">Log ID</td><td class="a">Login Date</td><td class="a">Login Time</td><td class="a">Logout Time</td></tr></thead>
             <tbody>
                 <%  
                         DBManager manager = (DBManager)session.getAttribute("manager");
-                        ArrayList<Log> logList = (ArrayList<Log>)manager.getAccessLog(user.getID());
-                        for(Log log : logList){ 
-                %>                                   
-                            <tr class ="h"><td class="a"><%= log.getLogID() %></td><td class="a"><%= log.getLoginDate() %></td><td class="a"><%= log.getLoginTime() %></td><td class="a"><%= log.getLogoutDate() %></td><td class="a"><%= log.getLogoutTime() %></td></tr>                        
-            <% } %>
+                        String search = request.getParameter("search");
+                        ArrayList<Log> logList = new ArrayList<Log>();
+                        
+                        if  (search!=null && search.equals("requested"))    {
+                                String date = request.getParameter("searchDate");
+                                logList = (ArrayList<Log>)manager.getSearchedLog(user.getID(), date);
+                            
+                                    for(Log log : logList)  { 
+                %>
+                                            <tr class ="h"><td class="a"><%= log.getLogID() %></td><td class="a"><%= log.getLoginDate() %></td><td class="a"><%= log.getLoginTime() %></td>
+                                            <td class="a"><%= log.getLogoutTime() %></td></tr>                                              
+                <% }
+                         } else { 
+                                logList = (ArrayList<Log>)manager.getAccessLog(user.getID());
+                                for(Log log : logList)  {   
+                %>
+                                        <tr class ="h"><td class="a"><%= log.getLogID() %></td><td class="a"><%= log.getLoginDate() %></td><td class="a"><%= log.getLoginTime() %></td>
+                                        <td class="a"><%= log.getLogoutTime() %></td></tr>                                                              
+                <%    }
+                        }       
+                %>
+
             </tbody>
         </table>
-            <form action="deleteLogAction.jsp" method="POST">
+            
+            <form action ="accessLog.jsp" method ="GET">
                 &nbsp; <table>
-                    <tr><td>Enter Log ID to delete: &nbsp; </td><td><input type="text" name="eraseID"</td>
+                    <tr><td>Search Access Logs by date: &nbsp; </td><td><input type="text" name="searchDate" value="dd/MM/yyyy" required ></td>
+                        <td>&nbsp; <input name="" type="submit" value ="Search">
+                <%      
+                        if (search!=null && search.equals("requested"))    {
+                        //<
+                        }
+                %>
+                        </td></tr>
+                    <input type="hidden" name="search" value="requested">
+            </form>
+            
+            <form action="accessLogDelete.jsp" method="POST">
+                &nbsp;
+                    <tr><td>Enter Log ID to delete: &nbsp; </td><td><input type="number" name="eraseID" required ></td>
                         <td>&nbsp; <input name="" type="submit" value ="Delete"><span class="error"> 
                                 &nbsp;<c:if test="${failErr!=null}"><span class="error"><c:out value="${failErr}"/></span></c:if></span></td></tr>
                 </table>                
