@@ -81,26 +81,25 @@ public class DBManager {
 
                         while(rs.next()){
                                 Log log = new Log();
-                                log.setLogID(rs.getString(1));
+                                log.setLogID(rs.getInt(1));
                                 //log.setUserID(rs.getString(2));
                                 log.setLoginDate(rs.getString(3));
                                 log.setLoginTime(rs.getString(4));
                                 log.setLogoutDate(rs.getString(5));
                                 log.setLogoutTime(rs.getString(6));
-                                logList.add(log);
-                                
+                                logList.add(log);                                
                         }                                       
                 return logList;
 
          }
          
          public void deleteLog(String eraseID) throws SQLException{
-                String deleteQueryString = "delete from access_log where Log_ID = '"+eraseID+"'" ;
+                String deleteQueryString = "delete from access_log where Log_ID = "+eraseID;
                  boolean recordDeleted = st.executeUpdate(deleteQueryString) > 0;
          }
          
          public boolean logOwned(String eraseID, String userID) throws SQLException{
-                String createQueryString = "select * from access_log where Log_ID = '"+ eraseID +"' and User_ID ='"+ userID + "'";
+                String createQueryString = "select * from access_log where Log_ID = "+ eraseID +" and User_ID ='"+ userID + "'";
                 ResultSet rs = st.executeQuery(createQueryString);
                 return rs.next();
          }

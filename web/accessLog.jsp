@@ -6,6 +6,7 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="uts.isd.model.dao.*"%>
 <%@page import="java.sql.ResultSet"%>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <%@page import="uts.isd.model.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -18,13 +19,13 @@
     
     <jsp:include page="header.jsp"/>    
     <% User user = (User)session.getAttribute("userLogin"); %>
-    
+
     <body>
         <h1> <%= user.getName() %>'s Access Log</h1>
         
-        <table class="account" width="100%">
+        <table class="account">
             <thead class="h"><tr ><td class="a">Log ID</td><td class="a">Login Date</td><td class="a">Login Time</td><td class="a">Logout Date </td><td class="a">Logout Time</td></tr></thead>
-            
+            <tbody>
                 <%  
                         DBManager manager = (DBManager)session.getAttribute("manager");
                         ArrayList<Log> logList = (ArrayList<Log>)manager.getAccessLog(user.getID());
@@ -32,13 +33,15 @@
                 %>                                   
                             <tr class ="h"><td class="a"><%= log.getLogID() %></td><td class="a"><%= log.getLoginDate() %></td><td class="a"><%= log.getLoginTime() %></td><td class="a"><%= log.getLogoutDate() %></td><td class="a"><%= log.getLogoutTime() %></td></tr>                        
             <% } %>
-                             
+            </tbody>
         </table>
             <form action="deleteLogAction.jsp" method="POST">
                 &nbsp; <table>
                     <tr><td>Enter Log ID to delete: &nbsp; </td><td><input type="text" name="eraseID"</td>
-                        <td>&nbsp; <input name="" type="submit" value ="Delete"></td></tr>
-                </table>
+                        <td>&nbsp; <input name="" type="submit" value ="Delete"><span class="error"> 
+                                &nbsp;<c:if test="${failErr!=null}"><span class="error"><c:out value="${failErr}"/></span></c:if></span></td></tr>
+                </table>                
+                ${failErr = null}
             </form>
-    </body>
+    </body> 
 </html>

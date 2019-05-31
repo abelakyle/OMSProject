@@ -2,29 +2,30 @@ package uts.isd.model;
 
 public class Log {
     
-    private String logID;
+    private int logID;
     private String userID;
     private String loginDate;
     private String loginTime;
     private String logoutDate;
     private String logoutTime;
 
-    public Log(String logID, String userID, String loginDate, String loginTime, String logoutTime) {
+    public Log() {
+    }
+
+    public Log(int logID, String userID, String loginDate, String loginTime, String logoutDate, String logoutTime) {
         this.logID = logID;
         this.userID = userID;
         this.loginDate = loginDate;
         this.loginTime = loginTime;
+        this.logoutDate = logoutDate;
         this.logoutTime = logoutTime;
     }
 
-    public Log() {
-    }
-
-    public String getLogID() {
+    public int getLogID() {
         return logID;
     }
 
-    public void setLogID(String logID) {
+    public void setLogID(int logID) {
         this.logID = logID;
     }
 
@@ -36,12 +37,28 @@ public class Log {
         this.userID = userID;
     }
 
+    public String getLoginDate() {
+        return loginDate;
+    }
+
+    public void setLoginDate(String loginDate) {
+        this.loginDate = loginDate;
+    }
+
     public String getLoginTime() {
         return loginTime;
     }
 
     public void setLoginTime(String loginTime) {
         this.loginTime = loginTime;
+    }
+
+    public String getLogoutDate() {
+        return logoutDate;
+    }
+
+    public void setLogoutDate(String logoutDate) {
+        this.logoutDate = logoutDate;
     }
 
     public String getLogoutTime() {
@@ -52,21 +69,6 @@ public class Log {
         this.logoutTime = logoutTime;
     }
 
-    public String getLoginDate() {
-        return loginDate;
-    }
-
-    public void setLoginDate(String loginDate) {
-        this.loginDate = loginDate;
-    }
-
-    public String getLogoutDate() {
-        return logoutDate;
-    }
-
-    public void setLogoutDate(String logoutDate) {
-        this.logoutDate = logoutDate;
-    }
-    
+      
     
 }

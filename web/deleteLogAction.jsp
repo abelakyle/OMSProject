@@ -29,7 +29,7 @@
                             manager.deleteLog(eraseID);
                             response.sendRedirect("accessLog.jsp");                        
                         }else{
-                            session.setAttribute("failErr", "Failed to delete that log.");
+                            session.setAttribute("failErr", "Failed to delete log '" +eraseID+"'.");
                             response.sendRedirect("accessLog.jsp");                               
                         }             
                 %>
