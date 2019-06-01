@@ -32,7 +32,7 @@
                             response.sendRedirect("home.jsp");                
                             
                         }else{
-                            session.setAttribute("existErr", "User profile does not exist!");
+                            session.setAttribute("existErr", "Failed to login with those details, please try again.");
                             response.sendRedirect("login.jsp");                               
                         }             
                 %>

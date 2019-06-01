@@ -57,10 +57,7 @@ public class DBManager {
                             userFromDB = new User (uID, uEmail,  uPassword, uName,  uPhone);
                     }       
                 rs.close();
-
                 return userFromDB;                
-                //need to validate inputs?
-                //if user !exist then return error or something
         }
         
          public void deleteUser(String ID) throws SQLException{

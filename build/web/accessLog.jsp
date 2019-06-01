@@ -28,51 +28,33 @@
             <tbody>
                 <%  
                         DBManager manager = (DBManager)session.getAttribute("manager");
-                        String search = request.getParameter("search");
                         ArrayList<Log> logList = new ArrayList<Log>();
-                        
-                        if  (search!=null && search.equals("requested"))    {
-                                String date = request.getParameter("searchDate");
-                                logList = (ArrayList<Log>)manager.getSearchedLog(user.getID(), date);
-                            
-                                    for(Log log : logList)  { 
+                    
+                        logList = (ArrayList<Log>)manager.getAccessLog(user.getID());
+                        for(Log log : logList)  {   
                 %>
-                                            <tr class ="h"><td class="a"><%= log.getLogID() %></td><td class="a"><%= log.getLoginDate() %></td><td class="a"><%= log.getLoginTime() %></td>
-                                            <td class="a"><%= log.getLogoutTime() %></td></tr>                                              
-                <% }
-                         } else { 
-                                logList = (ArrayList<Log>)manager.getAccessLog(user.getID());
-                                for(Log log : logList)  {   
-                %>
-                                        <tr class ="h"><td class="a"><%= log.getLogID() %></td><td class="a"><%= log.getLoginDate() %></td><td class="a"><%= log.getLoginTime() %></td>
-                                        <td class="a"><%= log.getLogoutTime() %></td></tr>                                                              
-                <%    }
-                        }       
-                %>
+                                <tr class ="h"><td class="a"><%= log.getLogID() %></td><td class="a"><%= log.getLoginDate() %></td><td class="a"><%= log.getLoginTime() %></td>
+                                <td class="a"><%= log.getLogoutTime() %></td></tr>                                                              
+                <%  }  %>
 
             </tbody>
-        </table>
-            
-            <form action ="accessLog.jsp" method ="GET">
-                &nbsp; <table>
-                    <tr><td>Search Access Logs by date: &nbsp; </td><td><input type="text" name="searchDate" value="dd/MM/yyyy" required ></td>
-                        <td>&nbsp; <input name="" type="submit" value ="Search">
-                <%      
-                        if (search!=null && search.equals("requested"))    {
-                        //<
-                        }
-                %>
-                        </td></tr>
-                    <input type="hidden" name="search" value="requested">
+        </table>            
+            <form action ="accessLogSearch.jsp" method ="GET">
+                &nbsp;<table align="center">
+                        <tr><td>Search Access Logs by date: &nbsp; </td><td><input type="text" name="searchDate" value="dd/MM/yyyy" required ></td>
+                        <td>&nbsp; <input name="" type="submit" value ="Search"></td></tr>
+                        <input type="hidden" name="search" value="requested">
+                </table>
             </form>
-            
+                
             <form action="accessLogDelete.jsp" method="POST">
-                &nbsp;
-                    <tr><td>Enter Log ID to delete: &nbsp; </td><td><input type="number" name="eraseID" required ></td>
+                &nbsp;<table align="center">
+                        <tr><td>Enter Log ID to delete: &nbsp; </td><td><input type="number" name="eraseID" required ></td>
                         <td>&nbsp; <input name="" type="submit" value ="Delete"><span class="error"> 
                                 &nbsp;<c:if test="${failErr!=null}"><span class="error"><c:out value="${failErr}"/></span></c:if></span></td></tr>
                 </table>                
                 ${failErr = null}
             </form>
+            <p align="center">&nbsp; <button onclick="window.location.href='accessLog.jsp'">Refresh</button></p>
     </body> 
 </html>

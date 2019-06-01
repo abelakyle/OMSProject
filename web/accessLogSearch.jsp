@@ -28,14 +28,27 @@
             <tbody>
                 <%  
                         DBManager manager = (DBManager)session.getAttribute("manager");
+                        String search = request.getParameter("search");
                         ArrayList<Log> logList = new ArrayList<Log>();
-                    
-                        logList = (ArrayList<Log>)manager.getAccessLog(user.getID());
-                        for(Log log : logList)  {   
+                        
+                        if  (search!=null && search.equals("requested"))    {
+                            String date = request.getParameter("searchDate");
+                                logList = (ArrayList<Log>)manager.getSearchedLog(user.getID(), date);
+                            
+                                    for(Log log : logList)  { 
                 %>
-                                <tr class ="h"><td class="a"><%= log.getLogID() %></td><td class="a"><%= log.getLoginDate() %></td><td class="a"><%= log.getLoginTime() %></td>
-                                <td class="a"><%= log.getLogoutTime() %></td></tr>                                                              
-                <%  }  %>
+                                            <tr class ="h"><td class="a"><%= log.getLogID() %></td><td class="a"><%= log.getLoginDate() %></td><td class="a"><%= log.getLoginTime() %></td>
+                                            <td class="a"><%= log.getLogoutTime() %></td></tr>                                              
+                <% }
+                         } else { 
+                                logList = (ArrayList<Log>)manager.getAccessLog(user.getID());
+                                for(Log log : logList)  {   
+                %>
+                                        <tr class ="h"><td class="a"><%= log.getLogID() %></td><td class="a"><%= log.getLoginDate() %></td><td class="a"><%= log.getLoginTime() %></td>
+                                        <td class="a"><%= log.getLogoutTime() %></td></tr>                                                              
+                <%    }
+                        }       
+                %>
 
             </tbody>
         </table>            
