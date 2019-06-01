@@ -29,5 +29,6 @@
                 <p>You have been logged out</p>
                 <p><a href="index.jsp">Home</a></p>
                 <!--<p><button onclick="window.location.href = 'index.jsp';">Home</button></p>-->
+                <jsp:include page="/ConnServlet" flush="true" />
         </body>
 </html>

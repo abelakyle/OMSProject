@@ -28,6 +28,7 @@
           response.sendRedirect("logout.jsp");
         %>
         
+        
     <body>
 
     </body>
